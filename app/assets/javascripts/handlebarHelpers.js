@@ -8,15 +8,7 @@ Handlebars.registerHelper('monthName', function(month) {
 });
 
 Handlebars.registerHelper('contentWithBreaks', function(content){
-  var paragraphs = content.split(/[*]/);
-
-  result = "";
-  paragraphs.filter(function(paragraph){
-    return paragraph !== "";
-  })
-  .forEach(function(paragraph){
-    result += "*" + paragraph + "<br><br>";
-  });
-
-  return new Handlebars.SafeString(result);
+  return new Handlebars.SafeString(
+    Handlebars.Utils.escapeExpression(content).replace(/\n/g,"<br>")
+  );
 });
