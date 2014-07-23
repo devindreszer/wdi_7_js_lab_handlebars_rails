@@ -1,9 +1,9 @@
 $(document).ready(function(){
   $.ajax({
     dataType: 'json',
-    url: Routes.articles_path()
+    url: Routes.profile_path()
   })
   .done(function(data){
-    $('#container').html(HandlebarsTemplates.articles(data));
+    $('#container').html(HandlebarsTemplates.profile(data));
   });
 });

@@ -5,7 +5,7 @@
 
   {{!-- Use dots to access sub-object properties --}}
   {{!-- Or you can use a with directive to change the context --}}
-  {{with author}}
+  {{#with author}}
     {{!-- Inside here, the context is the author object --}}
     <p>by {{name}} ({{username}})</p>
   {{/with}}
