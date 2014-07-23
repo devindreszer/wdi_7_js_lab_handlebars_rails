@@ -1,0 +1,30 @@
+{{!-- The context is the article json --}}
+{{#each this}}
+  {{!-- Inside here, the context is the article object, not the full article json --}}
+  <h2>{{title}}</h2>
+
+  {{!-- Use dots to access sub-object properties --}}
+  {{!-- Or you can use a with directive to change the context --}}
+  {{with author}}
+    {{!-- Inside here, the context is the author object --}}
+    <p>by {{name}} ({{username}})</p>
+  {{/with}}
+
+  <p>{{summary}}</p>
+
+  {{!-- Handlebars has if statements
+  it tries to figure out whether ther is something in it
+  also there is an unless operator b/c there is no ! operator --}}
+  {{#if comments}}
+    <ul>
+      {{#each comments}}
+        {{!-- Inside here, the context is the comment object, not article --}}
+        <li>{{content}}</li>
+      {{/each}}
+    </ul>
+
+  {{!-- Simply the keyword else (no hash or slash) --}}
+  {{else}}
+    <p>No comments</p>
+  {{/if}}
+{{/each}}
